@@ -1,0 +1,46 @@
+CONNECT hm.baidu.com:443 HTTP/1.1
+Host: hm.baidu.com:443
+Proxy-Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+
+A SSLv3-compatible ClientHello handshake was found. Fiddler extracted the parameters below.
+
+Version: 3.3 (TLS/1.2)
+Random: 9B 5A 93 0F 43 7D 86 F2 00 36 7F 44 9F 38 19 BC D5 9F 05 38 5F AD D7 15 B8 59 86 96 FE D4 01 44
+"Time": 1978/4/13 19:33:47
+SessionID: 0A 0A 00 00 07 BE 99 21 13 2E 07 7E 12 D7 91 6C 36 11 F9 9B B3 5B B9 05 B9 E1 EA 03 62 8D 3A AF
+Extensions: 
+	renegotiation_info	00
+	server_name	hm.baidu.com
+	extended_master_secret	empty
+	SessionTicket	empty
+	signature_algs	sha512_rsa, sha512_ecdsa, sha384_rsa, sha384_ecdsa, sha256_rsa, sha256_ecdsa, sha1_rsa, sha1_ecdsa
+	status_request	OCSP - Implicit Responder
+	SignedCertTimestamp (RFC6962)	empty
+	ALPN		h2, http/1.1
+	channel_id(GoogleDraft)	empty
+	ec_point_formats	uncompressed [0x0]
+	elliptic_curves	unknown [0x1D), secp256r1 [0x17], secp384r1 [0x18]
+Ciphers: 
+	[C02B]	TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+	[C02F]	TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	[C02C]	TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+	[C030]	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	[CCA9]	TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+	[CCA8]	TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	[CC14]	TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+	[CC13]	TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	[C009]	TLS1_CK_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+	[C013]	TLS1_CK_ECDHE_RSA_WITH_AES_128_CBC_SHA
+	[C00A]	TLS1_CK_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+	[C014]	TLS1_CK_ECDHE_RSA_WITH_AES_256_CBC_SHA
+	[009C]	TLS_RSA_WITH_AES_128_GCM_SHA256
+	[009D]	TLS_RSA_WITH_AES_256_GCM_SHA384
+	[002F]	TLS_RSA_AES_128_SHA
+	[0035]	TLS_RSA_AES_256_SHA
+	[000A]	SSL_RSA_WITH_3DES_EDE_SHA
+
+Compression: 
+	[00]	NO_COMPRESSION
+
+

@@ -1,0 +1,33 @@
+HTTP/1.1 200 Connection Established
+FiddlerGateway: Direct
+StartTime: 11:49:59.472
+Connection: close
+
+Encrypted HTTPS traffic flows through this CONNECT tunnel. HTTPS Decryption is enabled in Fiddler, so decrypted sessions running in this tunnel will be shown in the Web Sessions list.
+
+Secure Protocol: Tls
+Cipher: Aes128 128bits
+Hash Algorithm: Sha1 160bits
+Key Exchange: ECDHE_RSA (0xae06) 256bits
+
+== Server Certificate ==========
+[Subject]
+  CN=exmail.qq.com, OU=R&D, O=Shenzhen Tencent Computer Systems Company Limited, L=Shenzhen, S=Guangdong, C=CN
+
+[Issuer]
+  CN=GeoTrust SSL CA - G3, O=GeoTrust Inc., C=US
+
+[Serial Number]
+  59EF60B9F797AE81029F63D72F282077
+
+[Not Before]
+  2016/1/19 8:00:00
+
+[Not After]
+  2016/10/18 7:59:59
+
+[Thumbprint]
+  8A1720094C5E8CF229985DFC5CF07CAFC2DE93E3
+
+[SubjectAltNames]
+dav.exmail.qq.com, support.exmail.qq.com, mail.rtxapp.com, i.wework.qq.com, boss.exmail.qq.com, api.domain.mail.qq.com, m.exmail.qq.com, admin.rtxapp.com, ex.exmail.qq.com, edu.exmail.qq.com, cnc.exmail.qq.com, i.exmail.qq.com, set1.exmail.qq.com, en.exmail.qq.com, gaauth.qq.com, set2.exmail.qq.com, boss.exmailgz.com, addrapi.exmail.qq.com, open.exmail.qq.com, tel.exmail.qq.com, exmail.qq.com

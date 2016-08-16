@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Session SID="1" BitFlags="2100">
+  <SessionTimers ClientConnected="2016-08-11T11:49:59.4277882+08:00" ClientBeginRequest="2016-08-11T11:49:59.4397894+08:00" GotRequestHeaders="2016-08-11T11:49:59.4397894+08:00" ClientDoneRequest="2016-08-11T11:49:59.4397894+08:00" GatewayTime="0" DNSTime="0" TCPConnectTime="4" HTTPSHandshakeTime="6" ServerConnected="2016-08-11T11:49:59.4547909+08:00" FiddlerBeginRequest="2016-08-11T11:49:59.4547909+08:00" ServerGotRequest="2016-08-11T11:49:59.4547909+08:00" ServerBeginResponse="0001-01-01T00:00:00" GotResponseHeaders="0001-01-01T00:00:00" ServerDoneResponse="0001-01-01T00:00:00" ClientBeginResponse="2016-08-11T11:49:59.4547909+08:00" ClientDoneResponse="2016-08-11T11:49:59.4547909+08:00" />
+  <PipeInfo />
+  <TunnelInfo BytesEgress="0" BytesIngress="0" />
+  <SessionFlags>
+    <SessionFlag N="https-server-cipher" V="Aes128 128bits" />
+    <SessionFlag N="x-responsebodytransferlength" V="0" />
+    <SessionFlag N="https-server-version" V="Tls" />
+    <SessionFlag N="https-client-snihostname" V="exmail.qq.com" />
+    <SessionFlag N="x-clientip" V="127.0.0.1" />
+    <SessionFlag N="x-clientport" V="52294" />
+    <SessionFlag N="https-client-sessionid" V="4B 3B 00 00 DE 89 22 2C 8E 81 61 DD 07 1B 48 CA 15 19 AA DB FD 99 F8 C0 FB C5 9A AA 6A 72 86 C8" />
+    <SessionFlag N="x-processinfo" V="chrome:964" />
+    <SessionFlag N="https-client-version" V="Tls" />
+    <SessionFlag N="x-egressport" V="52302" />
+    <SessionFlag N="x-hostip" V="10.177.153.229" />
+  </SessionFlags>
+</Session>

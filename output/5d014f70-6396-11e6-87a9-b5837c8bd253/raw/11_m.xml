@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Session SID="11" BitFlags="880">
+  <SessionTimers ClientConnected="2016-08-11T11:49:59.6088063+08:00" ClientBeginRequest="2016-08-11T11:49:59.6088063+08:00" GotRequestHeaders="2016-08-11T11:49:59.6088063+08:00" ClientDoneRequest="2016-08-11T11:49:59.6088063+08:00" GatewayTime="15" DNSTime="0" TCPConnectTime="6" HTTPSHandshakeTime="0" ServerConnected="2016-08-11T11:49:59.625808+08:00" FiddlerBeginRequest="2016-08-11T11:49:59.625808+08:00" ServerGotRequest="2016-08-11T11:49:59.625808+08:00" ServerBeginResponse="2016-08-11T11:49:59.6698124+08:00" GotResponseHeaders="2016-08-11T11:49:59.6698124+08:00" ServerDoneResponse="2016-08-11T11:49:59.6698124+08:00" ClientBeginResponse="2016-08-11T11:49:59.6698124+08:00" ClientDoneResponse="2016-08-11T11:49:59.6698124+08:00" />
+  <PipeInfo Forwarded="true" />
+  <SessionFlags>
+    <SessionFlag N="x-clientport" V="0" />
+    <SessionFlag N="x-responsebodytransferlength" V="0" />
+    <SessionFlag N="x-autoauth" V="" />
+    <SessionFlag N="x-hostip" V="10.14.87.100" />
+    <SessionFlag N="x-egressport" V="52312" />
+    <SessionFlag N="x-createdtunnel" V="Fiddler-Created-This-CONNECT-Tunnel" />
+    <SessionFlag N="x-clientip" V="" />
+  </SessionFlags>
+</Session>

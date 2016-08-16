@@ -1,0 +1,6 @@
+HTTP/1.1 304 Not Modified
+Cache-Control: max-age=0, must-revalidate
+Date: Thu, 11 Aug 2016 03:50:00 GMT
+Etag: a8a8c51dd22ce7b195db5a7bbe252e91
+Server: apache
+

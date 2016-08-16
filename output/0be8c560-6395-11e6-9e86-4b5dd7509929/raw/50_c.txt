@@ -1,0 +1,11 @@
+GET https://hm.baidu.com/hm.gif?cc=0&ck=1&cl=24-bit&ds=1920x1080&et=0&fl=22.0&ja=0&ln=zh-CN&lo=0&lt=1469020421&nv=0&rnd=221393679&si=bdfb0d7298c0c5a5a2475c291ac7aca2&st=4&v=1.1.29&lv=2&tt=%E8%85%BE%E8%AE%AF%E4%BC%81%E4%B8%9A%E9%82%AE%E7%AE%B1%20-%20%E7%9B%B4%E8%BE%BE%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%EF%BC%8C%E4%B8%80%E4%BD%93%E5%8C%96%E5%8A%9E%E5%85%AC%E4%BD%93%E9%AA%8C HTTP/1.1
+Host: hm.baidu.com
+Connection: keep-alive
+Cache-Control: max-age=0
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+Accept: image/webp,image/*,*/*;q=0.8
+Referer: https://exmail.qq.com/
+Accept-Encoding: gzip, deflate, sdch, br
+Accept-Language: zh-CN,zh;q=0.8
+Cookie: HMACCOUNT=2CB89627DE784624; BAIDUID=13058B5EA31A3CE086396D35C7BC0EC1:FG=1; BIDUPSID=13058B5EA31A3CE086396D35C7BC0EC1; PSTM=1467776054; BDSFRCVID=ykDsJeC62uJtIKORqEho8gD7tmKaxj7TH6aoacCUfoFtrSAnAenLEG0PtvlQpYD-XFkSogKK3gOTH4nP; H_BDCLCKID_SF=JRPeVI_2tCvhDRTvhCTf-tCsbMQXKK62aKDsXRvg-hcqEIL45f6MyfPg0lQ4aP4O52PfLn6cK4n8MUbSj4Qo-ttd3fjy0J3HL26X5R58Bp5nhMJm54vGKhFvqJ7lahJy523iob3vQpPMDxtu-n5jHjJ3jHAf3H; ASP.NET_SessionId=prmulpu5i1ig0tzoonfwxies; HMVT=8e2a116daf0104a78d601f40a45c75b4|1470817622|; H_PS_PSSID=20739_1448_18240_19861_17001_11717_20770
+

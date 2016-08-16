@@ -1,0 +1,13 @@
+GET http://www.cnblogs.com/ HTTP/1.1
+Host: www.cnblogs.com
+Proxy-Connection: keep-alive
+Cache-Control: max-age=0
+Upgrade-Insecure-Requests: 1
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
+Referer: https://www.google.com.hk/
+Accept-Encoding: gzip, deflate, sdch
+Accept-Language: zh-CN,zh;q=0.8
+Cookie: ASP.NET_SessionId=tn1weapezci0u1a3pyn1bk32; bdshare_firstime=1468926929682; AJSTAT_ok_times=1; CNZZDATA3896371=cnzz_eid%3D207853561-1469514706-null%26ntime%3D1469514706; Hm_lvt_dd65f51d60cc52230b2ca17244d84167=1469514706; Hm_lpvt_dd65f51d60cc52230b2ca17244d84167=1469514706; CNZZDATA1258036937=319267572-1470359261-null%7C1470359261; pgv_pvi=1554007040; pgv_si=s312284160; Hm_lvt_1628f7c8d025473b441a8ba490edd441=1470228016,1470297269; Hm_lpvt_1628f7c8d025473b441a8ba490edd441=1470741450; CNZZDATA5131374=cnzz_eid%3D1820865663-1470796265-null%26ntime%3D1470796265; _gat=1; _ga=GA1.2.1715693826.1470826402
+If-Modified-Since: Tue, 16 Aug 2016 07:40:59 GMT
+

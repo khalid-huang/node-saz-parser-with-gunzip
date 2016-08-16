@@ -1,0 +1,4 @@
+CONNECT www.google-analytics.com:443 HTTP/1.1
+Host: www.google-analytics.com:443
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+

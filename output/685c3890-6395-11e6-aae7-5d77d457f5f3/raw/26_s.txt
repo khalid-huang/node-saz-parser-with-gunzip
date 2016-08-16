@@ -1,0 +1,1490 @@
+HTTP/1.1 200 OK
+Server: nginx/1.4.7
+Date: Thu, 11 Aug 2016 03:50:00 GMT
+Content-Type: application/x-javascript
+Content-Length: 44795
+Connection: keep-alive
+Expires: Sat, 10 Sep 2016 03:50:00 GMT
+Cache-Control: max-age=2592000
+Last-Modified: Wed, 20 Jul 2016 23:36:40 GMT
+
+(function(a,d){
+(function(g,f){
+function e(i,h)
+{
+return i.replace(/\{([\w\.]*)\}/g,function(o,k){
+var m=k.split("."),p=h[m.shift()];
+for(var j=0,n=m.length;j<n;j++)
+p=p[m[j]];
+return (typeof p!=="undefined"&&p!==null)?p:"";
+});
+}
+g.nano=e;
+})(window);
+var b=a(window);
+var c={};
+a.fn.BizDialog=function(g){
+var v={sId:"",nDlgType:1,sClass:"dialog",oContentHtml:"",nContainerHeight:127,bIsShowFooterCancelBtn:true,bMaskClickClose:false,nAutoClose:0,oRules:{},fLoadedCallback:null,fOpenCallback:null,fCloseCallback:null,fWillCloseCallback:null};
+var w='<div class="js_dialog dialog">'+'    <div class="dlg_header">'+'        <label>\u63D0\u793A</label>'+'        <a class="js_cancel_onlinesell_dialog btn_close" D_ck="cancel"><span class="onlinesell_commonImg onlinesell_commonImg_icon_close icon_close"></span></a>'+'    </div>'+'    <div class="dlg_content">'+'       <div style="display:table-cell;vertical-align: middle;">'+'            <span class="onlinesell_commonImg onlinesell_commonImg_info icon_info"></span>'+'       </div>'+'       <div style="display:table-cell;vertical-align: middle;">'+'            <span class="js_dlg_content">{content}</span>'+'       </div>'+'    </div>'+'    <div class="dlg_footer">'+'        <a class="js_jump_to_login_buy btn_confirm" D_ck="submit">\u786E\u5B9A</a>&nbsp;&nbsp;<a class="js_cancel_onlinesell_dialog js_footer_cancel_btn btn_cancel" D_ck="cancel">\u53D6\u6D88</a>'+'    </div>'+'</div>';
+var x='<div class="js_dialog dialog">'+'    <div class="dlg_header">'+'        <label>\u63D0\u793A</label>'+'        <a class="js_cancel_onlinesell_dialog btn_close" D_ck="cancel"><span class="onlinesell_commonImg onlinesell_commonImg_icon_close icon_close"></span></a>'+'    </div>'+'    <div class="dlg_content">'+'        <span class="js_dlg_content">{content}</span>'+'    </div>'+'    <div class="dlg_footer">'+'        <a class="js_jump_to_login_buy btn_confirm" D_ck="submit">\u786E\u5B9A</a>&nbsp;&nbsp;<a class="js_cancel_onlinesell_dialog js_footer_cancel_btn btn_cancel" D_ck="cancel">\u53D6\u6D88</a>'+'    </div>'+'</div>';
+var q=this,e=a(this);
+this.oConfig=a.extend(v,g),this.sId="__dialog__"+this.oConfig.sId+"__";
+e.attr("id",this.sId);
+var k=function(){
+if(c)
+{
+a.each(c,function(z,y){
+a("#"+_sId).remove();
+});
+a("#mask").remove();
+c={};
+}
+l();
+n();
+m();
+};
+var l=function(){
+if(q.oConfig.nDlgType==3)
+{
+w=x;
+}
+q._sTemplate=nano(w,{"content":q.oConfig.oContentHtml});
+q._oTemplate$=a(q._sTemplate);
+e.hide();
+q._oMaskDom$=a("<div id='mask' class='mask'></div>").hide();
+e.append(q._oTemplate$);
+if(!q.oConfig.bIsShowFooterCancelBtn)
+e.find(".js_footer_cancel_btn").hide();
+a("body").append(e);
+a("body").append(q._oMaskDom$);
+q._oContainer$=e.find(".dialog");
+q._oContentContainer$=e.find(".dialog_contaner");
+if(q.oConfig.nDlgType==2)
+{
+q._oContainer$.find(".left_btn_box").show();
+}
+};
+var n=function(){
+b.on('hashchange',j);
+b.on('resize',t);
+q._oMaskDom$.click(function(){
+if(q.oConfig.bMaskClickClose)
+{
+i();
+}
+});
+};
+var m=function(){
+s();
+o();
+e.show();
+q._oMaskDom$.show();
+f();
+h();
+};
+var p={tap:"D_tap",click:"D_ck",dblclick:"D_dbl",mousedown:"D_md",mouseup:"D_mu",mouseover:"D_mor",mousemove:"D_mm",mouseout:"D_mot",keydown:"D_kd",keypress:"D_kp",keyup:"D_ku"};
+var h=function(){
+if(q.oConfig.oRules)
+{
+var z=q.oConfig.oRules;
+for(var y in z)
+{
+q._oContainer$.delegate("["+p[y]+"]",y+".dialog",function(A){
+var C=a(this),D=C.attr(p[y]),B=z[y][D];
+if(D&&B)
+{
+B.call(q,A,C);
+}
+});
+}
+}
+};
+var u=function(){
+if(q.oConfig.oRules)
+{
+q._oContainer$.undelegate(".dialog");
+}
+b.off('hashchange',j);
+b.off('resize',t);
+};
+var i=function(){
+q.oConfig.fWillCloseCallback&&q.oConfig.fWillCloseCallback.call(q,q._oContainer$);
+e.hide();
+e.remove();
+q._oMaskDom$.remove();
+q.oConfig.fCloseCallback&&q.oConfig.fCloseCallback.call(q,q._oContainer$);
+clearTimeout(q._oAutoCloseSetTimeOut);
+delete c[q.sId];
+u();
+};
+var j=function(){
+i();
+};
+var t=function(){
+s();
+o();
+};
+var o=function(){
+var y=r();
+q._oMaskDom$.css({height:"100%",width:"100%"});
+};
+var s=function(){
+var z=r(),y;
+y=200;
+_nMinLeft=z.width()/2-200;
+q._oContainer$.css({top:y,left:_nMinLeft});
+};
+var r=function(){
+return {top:function(){
+return document.documentElement.scrollTop||document.body.scrollTop;
+},width:function(){
+return self.innerWidth||document.documentElement.clientWidth||document.body.clientWidth;
+},height:function(){
+return self.innerHeight||document.documentElement.clientHeight||document.body.clientHeight;
+},total:function(z){
+var y=document.body,A=document.documentElement;
+return z?Math.max(Math.max(y.scrollHeight,A.scrollHeight),Math.max(y.clientHeight,A.clientHeight)):Math.max(Math.max(y.scrollWidth,A.scrollWidth),Math.max(y.clientWidth,A.clientWidth));
+}};
+};
+var f=function(){
+c[q.sId]=q;
+if(q.oConfig.nAutoClose)
+{
+q._oAutoCloseSetTimeOut=setTimeout(function(){
+i();
+},1e3*q.oConfig.nAutoClose);
+}
+q.oConfig.fOpenCallback&&q.oConfig.fOpenCallback.call(q,q._oContainer$);
+};
+this.close=function(){
+i();
+};
+k();
+return this;
+};
+(function(){
+a.extend(a.fn,{showConfirm:function(f){
+e(f);
+}});
+function e(g)
+{
+var f=a('<div>').WapDialog({oContentHtml:g,nDlgType:1,oRules:{click:{cancel:function(h,i){
+f.close();
+},submit:function(h,i){
+f.close();
+}}}});
+}
+})();
+})(jQuery);
+(function(a,b){
+a(document).ready(function(){
+(function(){
+a(document).on('click',"[ck='changeDomainType']",function(d){
+if(a("input[name='is_had_domain']:checked").attr("value")==="0")
+{
+a("#domain_select_panel").show();
+a("#own_domain_panel").hide();
+}
+else{
+a("#domain_select_panel").hide();
+a("#own_domain_panel").show();
+}
+});
+a(document).on('click',"[ck='hasInviteCode']",function(d){
+if(a("input[name='hasInviteCode']").is(':checked')==true)
+{
+a("#inviteCodeTxt").show();
+}
+else{
+a("#inviteCodeTxt").hide();
+}
+});
+a(document).on('click',"[ck='checkIsDomainCanUse']",function(d){
+if(a.trim(a("input[name='domain_pre']").attr('value'))==="")
+{
+a.fn.showErr("\u8BF7\u5148\u8F93\u5165\u57DF\u540D");
+a("input[name='domain_pre']").focus();
+return;
+}
+var f="/cgi-bin/bizmail?action=checkDnspodDomainState&t=biz_rf_mgr&sid="+a("input[name='sid1']").val()+"&domain="+a.trim(a("input[name='domain_pre']").attr('value'))+a("[name='domain_suffix']").attr("value");
+a.ajax(f,{dataType:"json",success:function(e){
+if(e.retcode==="0")
+{
+a("#tips_domain_can_use").show();
+a("#domain_user_info").show();
+}
+else{
+a("#tips_domain_can_use").hide();
+var g="";
+a.each(e.data.recommended_domains,function(h){
+g+='<p class="txt_gray">'+h+'</p>';
+});
+a("#domain_list").html(g);
+a("#tips_domain_used").show();
+a("#domain_advice").hide();
+a("#domain_user_info").hide();
+}
+},error:function(e,g){
+a.fn.showErr(g||"\u67E5\u8BE2\u5931\u8D25");
+}});
+});
+a(document).on('click',"[ck='onlinesellDomainAdd']",function(h){
+if(a("#have_no_domain").attr("checked")==true)
+{
+if(a.trim(a("input[name='domain_pre']").attr('value'))==="")
+{
+a.fn.showErr("\u8BF7\u5148\u8F93\u5165\u57DF\u540D");
+a("input[name='domain_pre']").focus();
+return;
+}
+if(a("#tips_domain_can_use").style.display=="none"&&a("#tips_domain_used").style.display=="none")
+{
+a.fn.showErr("\u8BF7\u5148\u70B9\u51FB\u201C\u67E5\u8BE2\u57DF\u540D\u201D\u6309\u94AE\u68C0\u67E5\u57DF\u540D\u662F\u5426\u53EF\u7528");
+return;
+}
+if(a.trim(a("input[name='user_name']").attr('value'))==="")
+{
+a("#id_tip").hide();
+a("#id_err").show();
+a("input[name='user_name']").on("keyup",function(){
+if(a("input[name='user_name']").attr("value")!="")
+{
+a("#id_err").hide();
+}
+else{
+a("#id_err").show();
+}
+});
+return;
+}
+a("[ck='onlinesellDomainAdd']").html("\u63D0\u4EA4\u4E2D...");
+a("[ck='onlinesellDomainAdd']").attr("ck","");
+var f=a.trim(a("input[name='domain_pre']").attr('value')),g=a("[name='domain_suffix']").attr("value");
+var i="/cgi-bin/bizmail?action=addDPDomain&t=biz_rf_mgr&sid="+a("input[name='sid']").attr('value')+"&domain="+f+g+"&ownername="+a.trim(a("input[name='user_name']").attr("value"));
+a.ajax(i,{dataType:"json",success:function(e){
+if(e.retcode==="0")
+{
+location.href="/cgi-bin/bizmail_portal?t=bizmail_free_signup_domain&tt=confirmOrder";
+}
+else{
+a("#tips_domain_can_use").hide();
+var j="";
+a.each(e.data.recommended_domains,function(k){
+j+='<p class="txt_gray">'+k+'</p>';
+});
+a("#domain_list").html(j);
+a("#tips_domain_used").show();
+a("#domain_advice").show();
+a.fn.showErr("\u8BF7\u9009\u62E9\u53EF\u7528\u7684\u57DF\u540D");
+}
+a("[ck='onlinesellDomainAdd']").html("\u4E0B\u4E00\u6B65");
+a("[ck='onlinesellDomainAdd']").attr("ck","checkIsDomainCanUse");
+},error:function(e,j){
+a.fn.showErr(j);
+a("[ck='onlinesellDomainAdd']").html("\u4E0B\u4E00\u6B65");
+a("[ck='onlinesellDomainAdd']").attr("ck","checkIsDomainCanUse");
+}});
+}
+else{
+var d=a.trim(a("input[name='domain_own']").attr('value'));
+if(d==="")
+{
+a.fn.showErr("\u8BF7\u5148\u8F93\u5165\u57DF\u540D");
+a("input[name='domain_own']").focus();
+}
+else if(!/^[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/.test(d))
+{
+a.fn.showErr("\u57DF\u540D\u683C\u5F0F\u4E0D\u6B63\u786E");
+a("input[name='domain_own']").focus();
+}
+else{
+location.href="/cgi-bin/bizmail_portal?t=bizmail_free_signup_domain&tt=confirmOrder&sid="+a("input[name='sid']").attr('value');
+}
+}
+});
+function c()
+{
+var d=parseInt(a.trim(a("#buy_domain_year").val()),10);
+var e='/cgi-bin/bizmail_portal?t=biz_rf_mgr&action=getdomainprice&sid='+a("input[name='sid']").attr('value')+'&domain_year_amount=';
+if(isNaN(d))
+{
+d=1;
+}
+if(d=='')
+{
+a.fn.showErr('\u6700\u5C11\u9700\u8981\u8D2D\u4E701\u5E74\u3002');
+return;
+}
+else if(d<1)
+{
+a.fn.showErr('\u6700\u5C11\u9700\u8981\u8D2D\u4E701\u5E74\u3002');
+a("#buy_domain_year").val(1);
+d=1;
+}
+else if(year>10)
+{
+a.fn.showErr('\u6700\u591A\u8D2D\u4E7010\u5E74\u3002');
+a("#buy_domain_year").val(10);
+d=10;
+}
+a.ajax(e+d,{dataType:'json',success:function(f){
+if(f.errorcode==0)
+{
+a('.js_domain_price').html(parseInt(f.price));
+if(parseInt(f.ori_price,10)>parseInt(f.price))
+{
+a(".js_ori_domain_price").show();
+a(".js_ori_domain_price_1").html(parseInt(f.ori_price,10));
+}
+}
+else{
+a.fn.showErr('\u67E5\u8BE2\u5931\u8D25\uFF0C\u8BF7\u91CD\u65B0\u5C1D\u8BD5\u3002');
+}
+},error:function(f){
+a.fn.showErr('\u67E5\u8BE2\u5931\u8D25\uFF0C\u8BF7\u91CD\u65B0\u5C1D\u8BD5\u3002');
+}});
+}
+a(document).on('click',".js_minus_domain_year",function(d){
+d.preventDefault();
+var f=parseInt(a("#buy_domain_year").val(),10)-1;
+if(isNaN(f))
+{
+f=1;
+}
+if(f<1)
+{
+f=1;
+a.fn.showErr('\u6700\u5C11\u9700\u8981\u8D2D\u4E701\u5E74\u3002');
+return;
+}
+a("#buy_domain_year").val(f);
+c();
+});
+a(document).on('click',".js_add_domain_year",function(d){
+d.preventDefault();
+var f=parseInt(a("#buy_domain_year").val(),10)+1;
+if(isNaN(f)||f=="")
+{
+f=1;
+}
+if(f>10)
+{
+f=10;
+a.fn.showErr('\u6700\u591A\u8D2D\u4E7010\u5E74\u3002');
+return;
+}
+a("#buy_domain_year").val(f);
+c();
+});
+a(document).on('keyup',"#buy_domain_year",function(d){
+d.preventDefault();
+if(a("#buy_domain_year").val()=="")
+{
+return;
+}
+var f=parseInt(a("#buy_domain_year").val(),10);
+if(isNaN(f))
+{
+f=1;
+}
+if(f>10)
+{
+f=10;
+a.fn.showErr('\u6700\u591A\u8D2D\u4E7010\u5E74\u3002');
+}
+if(f<1)
+{
+f=1;
+a.fn.showErr('\u6700\u5C11\u9700\u8981\u8D2D\u4E701\u5E74\u3002');
+}
+a("#buy_domain_year").val(f);
+c();
+});
+})();
+(function(){
+var w=a('input[name=sid1]').val();
+var x=a('input[name=uin]').val();
+function y(O)
+{
+var N=O,J=/^[0-9a-zA-Z\.\-_]*$/,L=/(^[\.\-_])/,K=/([\.\-_]$)/,M=/[\.\-_][\.\-_]/;
+return (J.test(N)&&!L.test(N)&&!K.test(N)&&!M.test(N)&&4<=N.length&&N.length<=32);
+}
+function F(W,U)
+{
+var T=W,S=U,N=/[a-zA-Z]/,Q=/[0-9]/,R=/([a-zA-Z0-9\~\!\@\#\$\%\^\&\*\(\)\+\`\-\=\[\]\\\{ \}\|\;\'\:\"\,\.\/\<\>\?])\1\1/,K=true;
+K=(S.length<3||T.indexOf(S)==-1)?K:false;
+K=T.indexOf(" ")==-1?K:false;
+var L=0,O,P;
+if(O==null)
+{
+O=a("input[un='comm_pwd']").val();
+O=a.trim(O);
+O=O.split(";");
+}
+L=O.length;
+for(var V=0;V<L;V++)
+{
+if(O[V]==T)
+{
+K=false;
+break;
+}
+}
+if(K==true)
+{
+var J=hex_md5(T);
+var M=0;
+if(P==null)
+{
+P=a("input[un='comm_pwd_md5']").attr("value");
+P=a.trim(P);
+P=P.split(";");
+}
+M=P.length;
+for(var V=0;V<L;V++)
+{
+if(P[V]==J)
+{
+K=false;
+break;
+}
+}
+}
+if(K===true)
+{
+K=/[A-Z]/.test(W)&&/[a-z]/.test(W)&&/[0-9]/.test(W);
+}
+return (6<=T.length&&T.length<=32)&&K;
+}
+var h="",g=false;
+function z(L)
+{
+var J=L;
+var K='/cgi-bin/bizmail_portal?action=check_alias&alias='+L+'&t=biz_rf_portal_mgr&ef=jsnew&resp_charset=UTF8&r='+Math.random();
+if(L===h)
+{
+v(g,"\u8BE5\u5E10\u53F7\u5DF2\u88AB\u6CE8\u518C\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='alias']"));
+return;
+}
+h=J;
+g=false;
+a.ajax(K,{dataType:'json',success:function(M){
+if(M.data.exist==="1")
+{
+g=true;
+v(true,"\u8BE5\u5E10\u53F7\u5DF2\u88AB\u6CE8\u518C\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='alias']"));
+return;
+}
+else{
+g=false;
+v(false,"\u8BE5\u5E10\u53F7\u5DF2\u88AB\u6CE8\u518C\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='alias']"));
+return;
+}
+},error:function(M){
+console.log("error data exist");
+}});
+}
+function G(J,K)
+{
+return J==K;
+}
+function A()
+{
+return a("[type='checkbox']")[0].checked;
+}
+function n(J)
+{
+var L=new RegExp("(^|&)"+J+"=([^&]*)(&|$)");
+var K=window.location.search.substr(1).match(L);
+if(K!=null)
+{
+if(/^[\u4e00-\u9fa5]+$/.test(decodeURIComponent(K[2])))
+{
+return K[2];
+}
+else{
+return a("<div/>").text(K[2]).html();
+}
+}
+return null;
+}
+function k(K)
+{
+if(K>0)
+{
+next_sec=K-1;
+var J=next_sec+"\u79D2\u540E\u53EF\u91CD\u65B0\u83B7\u53D6";
+a("#btn_send_phone_vc").addClass("disabled");
+a("#btn_send_phone_vc").html(J);
+a("#btn_send_phone_vc").val(next_sec+"\u79D2\u540E\u53EF\u91CD\u65B0\u83B7\u53D6");
+setTimeout(function(){
+k(next_sec);
+},1000);
+}
+else{
+a("#btn_send_phone_vc").removeClass("disabled");
+a("#btn_send_phone_vc").html("\u514D\u8D39\u83B7\u53D6\u9A8C\u8BC1\u7801");
+a("#btn_send_phone_vc").val("\u514D\u8D39\u83B7\u53D6\u9A8C\u8BC1\u7801");
+}
+}
+;function E(N,L)
+{
+var K=N,J=/^\d{11}$/,M=J.test(K);
+if(N==="")
+{
+a(L).html("\u624B\u673A\u53F7\u4E0D\u80FD\u4E3A\u7A7A");
+a(L).show();
+return false;
+}
+if(!M)
+{
+a(L).html("\u8BF7\u8F93\u5165\u6B63\u786E\u7684\u624B\u673A\u53F7\u7801");
+a(L).show();
+return false;
+}
+return true;
+}
+function H()
+{
+return (a("input[name='phone_vc']").val()!="");
+}
+function I(J)
+{
+if(a("[un='verifycode']").is(":hidden"))
+{
+return true;
+}
+else if(a("input[name='img_vc']").val()=="")
+{
+a(J).html("\u56FE\u7247\u9A8C\u8BC1\u7801\u4E0D\u80FD\u4E3A\u7A7A");
+a(J).show();
+return false;
+}
+else{
+return true;
+}
+}
+function v(K,L,J)
+{
+if(K===true)
+{
+J.parent().find(".err").html(L);
+J.parent().find(".err").show();
+}
+else{
+J.parent().find(".err").hide();
+}
+}
+function D()
+{
+var J=y(a("[name='alias']").val()),L=F(a("[name='passwd']").val(),a("[name='alias']").val()),M=G(a("[name='passwd']").val(),a("[name='passwd2']").val()),N=E(a.trim(a("[name='mobile']").val()),a("[name='mobile']").parent().find(".err")),O=H(a("[name='phone_vc']").val()),P=I(a("[name='img_vc']").parent().find(".err")),K=A();
+v(!J,a("[name='alias']").val()===""?"\u5E10\u53F7\u4E0D\u80FD\u4E3A\u7A7A":"\u5E10\u53F7\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='alias']"));
+if(J)
+{
+z(a("[name='alias']").val());
+}
+v(!L,a("[name='passwd']").val()===""?"\u5BC6\u7801\u4E0D\u80FD\u4E3A\u7A7A":"\u5BC6\u7801\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='passwd']"));
+if(a("[name='passwd2']").val()=="")
+{
+v(true,"\u786E\u8BA4\u5BC6\u7801\u4E0D\u80FD\u4E3A\u7A7A",a("[name='passwd2']"));
+}
+else{
+v(!M,"\u4E24\u6B21\u5BC6\u7801\u8F93\u5165\u4E0D\u4E00\u81F4",a("[name='passwd2']"));
+}
+v(!N,a("[name='mobile']").val()===""?"\u624B\u673A\u53F7\u4E0D\u80FD\u4E3A\u7A7A":"\u8BF7\u8F93\u5165\u6B63\u786E\u7684\u624B\u673A\u53F7",a("[name='mobile']"));
+v(!O,"\u8BF7\u8F93\u5165\u624B\u673A\u9A8C\u8BC1\u7801",a("[name='phone_vc']"));
+v(!K,"\u8BF7\u9605\u8BFB\u5E76\u52FE\u9009\u540C\u610F\u7528\u6237\u534F\u8BAE",a("[name='ss']"));
+return J&&L&&M&&K&&P&&N&&O;
+}
+function m()
+{
+var K=a("input[name='source']").val(),J=a("input[name='qy_code']").val();
+return (K&&J)?("&source="+K+"&qy_code="+J):"";
+}
+a("[name='mobile']").blur(function(){
+if(a("[name='mobile']").val()==="")
+{
+return;
+}
+var J=E(a.trim(a("[name='mobile']").val()),a("[name='mobile']").parent().find(".err"));
+v(!J,a("[name='mobile']").val()===""?"\u624B\u673A\u53F7\u4E0D\u80FD\u4E3A\u7A7A":"\u8BF7\u8F93\u5165\u6B63\u786E\u7684\u624B\u673A\u53F7",a("[name='mobile']"));
+}).on('click',function(){
+v(false,"",a("[name='mobile']"));
+});
+a("[name='phone_vc']").blur(function(){
+var J=H(a("[name='phone_vc']").val());
+if(a("[name='phone_vc']").val()==="")
+{
+return;
+}
+v(!J,"\u8BF7\u8F93\u5165\u624B\u673A\u9A8C\u8BC1\u7801",a("[name='phone_vc']"));
+}).on('click',function(){
+v(false,"",a("[name='phone_vc']"));
+});
+a("[name='passwd2']").keyup(function(){
+v(a("[name='passwd']").val()!=a("[name='passwd2']").val()||a("[name='passwd']").val()==a("[name='passwd2']").val(),"",a("[name='passwd2']"));
+});
+a(document).on('blur',"[name='passwd2']",function(J){
+v(a("[name='passwd']").val()!=a("[name='passwd2']").val(),"\u4E24\u6B21\u5BC6\u7801\u8F93\u5165\u4E0D\u4E00\u81F4",a("[name='passwd2']"));
+});
+a(document).on('focus',"[name='domain_add']",function(J){
+a(".js_domain_input_tips").hide();
+}).on('blur',"[name='domain_add']",function(L){
+var J=a("[name='domain_add']").val();
+var K=/^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/;
+if(J=="")
+{
+return;
+}
+else if(!K.test(J))
+{
+a(".js_valid_tip").html("\u8BF7\u8F93\u51651~67\u4F4D\u82F1\u6587\u6216\u6570\u5B57\u7684\u57DF\u540D\uFF0C\u5982tencent.com");
+a(".js_valid_tip").css("color","#FF0000");
+a(".js_domain_input_tips").show();
+return;
+}
+});
+a(document).on('blur',"input",function(J){
+if(a(J.currentTarget).val()||('placeholder' in document.createElement('input')))
+{
+return false;
+}
+a(J.currentTarget).siblings(".cus_placeholder").eq(0).show();
+});
+var o='placeholder' in document.createElement('input');
+if(!o)
+{
+a('input[data-placeholder]').each(function(M,L){
+var J=a(L);
+var K=a('<label class="cus_placeholder">'+J.attr('data-placeholder')+'</label>');
+var N=parseInt(J.css('padding-left'),10)+parseInt(J.css('margin-left'),10)+parseInt(J.css('border-left-width'),10);
+var O=parseInt(J.css('padding-top'),10)+parseInt(J.css('margin-top'),10)+parseInt(J.css('border-top-width'),10);
+K.css({"position":"absolute","margin-left":N+'px',"margin-top":O+'px',"color":"#C7C7CD"}).on('click',function(){
+if(J.is(':disabled'))
+{
+return;
+}
+a(this).hide();
+J.eq(0).focus();
+});
+J.on('input blur propertychange',function(){
+if(J.val()==='')
+{
+K.show();
+}
+else{
+K.hide();
+}
+});
+J.on('focus',function(){
+K.hide();
+});
+K.insertBefore(J);
+});
+}
+var u=function(J){
+a(".js_valid_tip").html(J);
+a(".js_valid_tip").css("color","#FF0000");
+a(".js_domain_input_tips").show();
+};
+a(document).on('click',"a[ck='freeRegDomainAdd']",function(P){
+var M=/^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$/;
+if(a("input[name='domain_option']:checked").val()=="yes")
+{
+(new Image()).src='/cgi-bin/online_sell_pay_v2?action=general_collect_data&type=buy_dnspod&item=click_have_domain';
+var N=a('input[name=domain_str]').val();
+if(!M.test(N))
+{
+u("\u8BF7\u8F93\u51651~67\u4F4D\u82F1\u6587\u6216\u6570\u5B57\u7684\u57DF\u540D\uFF0C\u5982tencent.com");
+return;
+}
+a("[ck='freeRegDomainAdd']").html("\u63D0\u4EA4\u4E2D...");
+window.location.href="/cgi-bin/bizmail_domain?sid="+w+"&t=bizmail_free_signup_domain&tt=addmx&action=get_dns&domainname="+N+"&alias="+a("input[name='alias']").val()+"&r="+Math.random()+m();
+}
+else{
+(new Image()).src='/cgi-bin/online_sell_pay_v2?action=general_collect_data&type=buy_dnspod&item=click_no_domain';
+var J=a('#domain_text');
+var L=J.val();
+var O=a('#domain_ext_value').text();
+var K=L+O;
+if(K=="")
+{
+u("\u8BF7\u5148\u8F93\u5165\u57DF\u540D");
+return;
+}
+else if(!M.test(K))
+{
+u("\u8BF7\u8F93\u51651~67\u4F4D\u82F1\u6587\u6216\u6570\u5B57\u7684\u57DF\u540D\uFF0C\u5982tencent.com");
+return;
+}
+else{
+if(J.attr('domain')!='true')
+{
+u("\u8BF7\u5148\u67E5\u8BE2\u57DF\u540D\u662F\u5426\u53EF\u7528");
+return;
+}
+var Q=a.trim(a('#form_id_name').val());
+if(Q==="")
+{
+u("\u8BF7\u8F93\u5165\u8EAB\u4EFD\u8BC1\u4E0A\u7684\u540D\u5B57");
+return;
+}
+a("[ck='freeRegDomainAdd']").html("\u63D0\u4EA4\u4E2D...");
+location.href="/cgi-bin/bizmail_domain?sid="+w+"&t=bizmail_free_signup_domain&tt=generateOrderDnspod&action=generate_order&domainName="+L+"&domainType="+O+'&name='+Q+"&alias="+a("input[name='alias']").val()+"&r="+Math.random();
+}
+}
+});
+a(document).on('click',"[ck='pendingAdd']",function(K){
+var J=a("[name='domainname']").val(),L="/cgi-bin/bizmail_domain?sid="+n("sid")+"&t=biz_rf_mgr&ef=jsnew&action=add_pending&domainname="+J+"&r="+Math.random();
+if(!confirm("MX\u8BB0\u5F55\u9700\u8981\u5230\u60A8\u7684\u57DF\u540D\u63D0\u4F9B\u5546\u8FDB\u884C\u8BBE\u7F6E\uFF0C\u57DF\u540D\u9A8C\u8BC1\u6210\u529F\u540E\u4FBF\u53EF\u4F7F\u7528\u817E\u8BAF\u4F01\u4E1A\u90AE\u7BB1\u3002"))
+{
+return;
+}
+a("#tipsTop").show();
+a.ajax(L,{dataType:'json',success:function(O){
+if(O.retcode=="0"||O.retcode=="-102"||O.retcode=="1002"||O.retcode=="1003")
+{
+var Q=a("input[name='source']").val(),M="http://"+location.hostname,P;
+if(Q=="qywx")
+{
+var N=a("#dms").attr("data-url")?a("#dms").attr("data-url"):"#mbr/domain/qywx";
+P=M+"/cgi-bin/bizmail?sid="+n("sid")+"&t=biz_rf_home&init=1&action=get_ww_member"+N;
+}
+else{
+P=M+"/cgi-bin/bizmail?sid="+n("sid")+"&t=biz_rf_home&init=1&r="+Math.random();
+}
+setTimeout(function(){
+location.href=P;
+},1500);
+}
+else if(O.retcode=="1004")
+{
+a.fn.showErr("\u817E\u8BAF\u516C\u53F8\u5185\u90E8\u57DF\u540D\uFF0C\u4E0D\u80FD\u7ED1\u5B9A");
+}
+else if(O.retcode=="1005")
+{
+a.fn.showErr("\u57DF\u540D\u6B63\u5728\u6CE8\u9500\u4E2D");
+}
+else if(O.retcode=="-2")
+{
+a.fn.showErr(O.errmsg||"\u6DFB\u52A0\u57DF\u540D\u5931\u8D25\uFF0C\u4E00\u5929\u6700\u591A\u53EA\u80FD\u6DFB\u52A01\u6B21");
+}
+else{
+a.fn.showErr(O.errmsg||"\u64CD\u4F5C\u5931\u8D25");
+}
+a("#tipsTop").hide();
+},error:function(M,N){
+a.fn.showErr(N||"\u64CD\u4F5C\u5931\u8D25");
+a("#tipsTop").hide();
+}});
+});
+a(document).on('click',"#btn_send_phone_vc",function(K){
+if(a(K.target).hasClass("disabled"))
+{
+return;
+}
+var J=a("[name='mobile']");
+var L=a.trim(J.val());
+if(!E(L,J.parent().find(".err")))
+{
+return;
+}
+var M="/cgi-bin/bizmail_portal?t=biz_rf_portal_mgr&action=send_sms&ef=jsnew&mobile="+L+"&type=7&img_vc=&r="+Math.random();
+a.ajax(M,{type:'post',dataType:'json',success:function(O){
+var N=a("#btn_send_phone_vc");
+if(O.retcode=="-106")
+{
+a.fn.showErr("\u6CE8\u518C\u7684\u624B\u673A\u53F7\u7801\u5DF2\u7ECF\u8FBE\u5230\u6CE8\u518C\u7684\u4E0A\u9650\u3002");
+N.removeClass("disabled");
+}
+else if(O.retcode=="-101")
+{
+a.fn.showErr("\u8BE5\u624B\u673A\u53F7\u7801\u6216IP\u9A8C\u8BC1\u8BF7\u6C42\u8FC7\u4E8E\u9891\u7E41");
+N.removeClass("disabled");
+}
+else if(O.retcode=="0")
+{
+a.fn.showMsg("\u624B\u673A\u9A8C\u8BC1\u7801\u5DF2\u53D1\u9001\u6210\u529F");
+k(60);
+}
+else if(O.retcode=="-201")
+{
+a(K.target).parent().find(".signupfree_phone_verify_container").show();
+a("[name='phone_vc']").attr("disabled",true);
+a.fn.showMsg("\u8BF7\u5148\u8F93\u5165\u56FE\u7247\u9A8C\u8BC1\u7801");
+a("#verify_phone_img_code").focus();
+a(K.target).addClass("disabled");
+}
+else if(O.retcode=="-103")
+{
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF");
+}
+else{
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF");
+}
+},error:function(N){
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF");
+}});
+});
+a(document).on('click',"[ck='submit_phone_img']",function(J){
+J.preventDefault();
+a("#err_tips").hide();
+var K=a("#mobile").val(),M=a("#verify_phone_img_code").val();
+if(M==="")
+{
+a.fn.showErr("\u9A8C\u8BC1\u7801\u4E0D\u80FD\u4E3A\u7A7A");
+return;
+}
+var L="/cgi-bin/bizmail_portal?t=biz_rf_portal_mgr&action=send_sms&ef=jsnew&mobile="+K+"&type=7"+"&img_vc="+M+"&r="+Math.random();
+a.ajax(L,{type:'post',dataType:'json',success:function(N){
+if(N.retcode=="-106")
+{
+a.fn.showErr("\u6CE8\u518C\u7684\u624B\u673A\u53F7\u7801\u6216\u5BC6\u4FDD\u90AE\u7BB1\u5DF2\u7ECF\u8D85\u8FC7\u6CE8\u518C\u7684\u4E0A\u9650\u3002");
+a("#err_tips").hide();
+a("#verify_phone_img_code").val("");
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a(".signupfree_phone_verify_container").hide();
+a("#btn_send_phone_vc").removeClass("disabled");
+}
+else if(N.retcode=="-101")
+{
+a.fn.showErr("\u8BE5\u624B\u673A\u53F7\u7801\u6216IP\u9A8C\u8BC1\u8BF7\u6C42\u8FC7\u4E8E\u9891\u7E41");
+a("#err_tips").hide();
+a("#verify_phone_img_code").val("");
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a(".signupfree_phone_verify_container").hide();
+a("#btn_send_phone_vc").removeClass("disabled");
+}
+else if(N.retcode=="-202")
+{
+a("#err_tips").show();
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a("#verify_phone_img_code").val("");
+a("#verify_phone_img_code").focus();
+}
+else if(N.retcode=="-121")
+{
+a("#err_tips").show();
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a("#verify_phone_img_code").val("");
+a("#verify_phone_img_code").focus();
+}
+else if(N.retcode=="0")
+{
+a("#err_tips").hide();
+a("#verify_phone_img_code").val("");
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a(".signupfree_phone_verify_container").hide();
+a("[name='phone_vc']").attr("disabled",false);
+a("[name='phone_vc']").focus();
+a.fn.showMsg("\u624B\u673A\u9A8C\u8BC1\u7801\u5DF2\u53D1\u9001");
+k(60);
+}
+else{
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+a("#err_tips").hide();
+a("#verify_phone_img_code").val("");
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a(".signupfree_phone_verify_container").hide();
+a("#btn_send_phone_vc").removeClass("disabled");
+}
+},error:function(N){
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+a("#err_tips").hide();
+a("#verify_phone_img_code").val("");
+a("#phone_verify_img").attr("src",a("#phone_verify_img").attr("v")+"&"+Math.random());
+a(".signupfree_phone_verify_container").hide();
+a("#btn_send_phone_vc").removeClass("disabled");
+}});
+});
+a(document).on('click',"a[ck='freeRegSubmit']",function(J){
+J.preventDefault();
+var L='/cgi-bin/bizmail_portal?action=sign_up_v4&t=biz_rf_portal_mgr&ef=jsnew&type='+n("type")+'&resp_charset=UTF8&r='+Math.random();
+var K=a("#freeSignupForm").serialize();
+if(!B())
+{
+return;
+}
+a("[ck='freeRegSubmit']").html("\u63D0\u4EA4\u4E2D...");
+a.ajax(L+'&'+K,{dataType:'json',success:function(N){
+if(N.retcode==0)
+{
+a.fn.showMsg("\u521B\u5EFA\u6210\u529F");
+var M="http://"+location.hostname;
+var O=M+"/cgi-bin/bizmail?t=bizmail_free_signup_domain&tt=addDomain&sid="+N.data.sid+"&alias="+a("[name='alias']").val()+"&r="+Math.random()+m();
+location.href=O;
+}
+else if(N.retcode=="-1000")
+{
+a.fn.showErr("\u8FDE\u63A5\u8D85\u65F6\uFF0C\u8BF7\u8FD4\u56DE\u91CD\u65B0\u626B\u7801");
+}
+else if(N.retcode=="104")
+{
+a.fn.showErr("\u6CE8\u518C\u7684\u5FAE\u4FE1/\u624B\u673A\u5DF2\u8FBE\u5230\u7ED1\u5B9A\u4E0A\u9650\uFF0C\u6CE8\u518C\u5931\u8D25");
+}
+else{
+a.fn.showErr(N.errmsg||"\u6CE8\u518C\u5931\u8D25\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+}
+a("[ck='freeRegSubmit']").html("\u4E0B\u4E00\u6B65");
+},error:function(M){
+a.fn.showErr("\u64CD\u4F5C\u5931\u8D25");
+a("[ck='freeRegSubmit']").html("\u4E0B\u4E00\u6B65");
+}});
+});
+function B()
+{
+var J=y(a("[name='alias']").val()),L=F(a("[name='passwd']").val(),a("[name='alias']").val()),M=G(a("[name='passwd']").val(),a("[name='passwd2']").val()),K=A();
+v(!J,a("[name='alias']").val()===""?"\u5E10\u53F7\u4E0D\u80FD\u4E3A\u7A7A":"\u5E10\u53F7\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='alias']"));
+if(J)
+{
+z(a("[name='alias']").val());
+}
+v(!L,a("[name='passwd']").val()===""?"\u5BC6\u7801\u4E0D\u80FD\u4E3A\u7A7A":"\u5BC6\u7801\u683C\u5F0F\u9519\u8BEF\uFF0C\u8BF7\u91CD\u65B0\u8F93\u5165",a("[name='passwd']"));
+if(a("[name='passwd2']").val()=="")
+{
+v(true,"\u786E\u8BA4\u5BC6\u7801\u4E0D\u80FD\u4E3A\u7A7A",a("[name='passwd2']"));
+}
+else{
+v(!M,"\u4E24\u6B21\u5BC6\u7801\u8F93\u5165\u4E0D\u4E00\u81F4",a("[name='passwd2']"));
+}
+v(!K,"\u8BF7\u9605\u8BFB\u5E76\u52FE\u9009\u540C\u610F\u7528\u6237\u534F\u8BAE",a("[name='ss']"));
+return J&&L&&M&&K;
+}
+function C()
+{
+var J=E(a.trim(a("[name='mobile']").val()),a("[name='mobile']").parent().find(".err")),K=H(a("[name='phone_vc']").val()),L=I(a("[name='img_vc']").parent().find(".err"));
+v(!J,a("[name='mobile']").val()===""?"\u624B\u673A\u53F7\u4E0D\u80FD\u4E3A\u7A7A":"\u8BF7\u8F93\u5165\u6B63\u786E\u7684\u624B\u673A\u53F7",a("[name='mobile']"));
+v(!K,"\u8BF7\u8F93\u5165\u624B\u673A\u9A8C\u8BC1\u7801",a("[name='phone_vc']"));
+return L&&J&&K;
+}
+a(document).on('click',"a[ck='signByPhone']",function(J){
+a(".register_qrcode").hide();
+a(".register_phone").show();
+a(document).on('keydown',function(K){
+if(K.keyCode==13&&document.getElementById("freeRegFhoneSubmit"))
+{
+a("a[ck='freeRegFhoneSubmit']").trigger("click");
+}
+});
+a.ajax('/cgi-bin/sellonlinestatic?type=free_register&item=free_register_by_mobile_pv&r='+Math.random(),{dataType:'json'});
+});
+a(document).on('click',"a[ck='backToWx']",function(J){
+a(".register_qrcode").show();
+a(".register_phone").hide();
+a(document).off('keydown');
+a.ajax('/cgi-bin/sellonlinestatic?type=free_register&item=free_register_by_weixin_pv&r='+Math.random(),{dataType:'json'});
+});
+a(document).on('keypress',function(J){
+if(J.keyCode==13)
+{
+if(document.getElementById("freeRegSubmit"))
+{
+a("a[ck='freeRegSubmit']").trigger("click");
+}
+if(document.getElementById("freeRegDomainAdd"))
+{
+a("a[ck='freeRegDomainAdd']").trigger("click");
+}
+}
+});
+a(document).on('click',"a[ck='freeRegFhoneSubmit']",function(J){
+J.preventDefault();
+var L='/cgi-bin/bizmail_portal?action=free_register_by_mobile&t=biz_rf_portal_mgr&ef=jsnew&resp_charset=UTF8&r='+Math.random();
+var K=a("#register_phone").serialize();
+if(!C())
+{
+return;
+}
+a("[ck='freeRegFhoneSubmit']").html("\u63D0\u4EA4\u4E2D...");
+a.ajax(L+'&'+K,{dataType:'json',success:function(N){
+if(N.retcode==0)
+{
+var P=a("[name='regType']").val()=="free"?"bizmail_free_signup":"bizmail_trial_signup";
+var M="http://"+location.hostname;
+var O=M+"/cgi-bin/bizmail_portal?t="+P+"&tt=fillAdminInfo&code="+N.data.code+"&type=mobile&refer="+n("refer")+"&r="+Math.random();
+location.href=O;
+}
+else if(N.retcode=="-98")
+{
+a.fn.showErr("\u624B\u673A\u53F7\u53CA\u624B\u673A\u9A8C\u8BC1\u7801\u4E0D\u80FD\u4E3A\u7A7A");
+a("[ck='freeRegFhoneSubmit']").html("\u4E0B\u4E00\u6B65");
+}
+else if(N.retcode=="-99")
+{
+a.fn.showErr("\u624B\u673A\u9A8C\u8BC1\u7801\u9519\u8BEF");
+a("[ck='freeRegFhoneSubmit']").html("\u4E0B\u4E00\u6B65");
+}
+else if(N.retcode=="-104")
+{
+a.fn.showErr("\u624B\u673A\u7ED1\u5B9A\u7684\u5E10\u53F7\u6570\u5DF2\u8D85\u8FC7\u9650\u989D");
+a("[ck='freeRegFhoneSubmit']").html("\u4E0B\u4E00\u6B65");
+}
+else{
+if(N.retcode=="-201")
+{
+a.fn.showErr("\u8BF7\u8F93\u5165\u9A8C\u8BC1\u7801");
+}
+else if(N.retcode=="-202")
+{
+a.fn.showErr("\u9A8C\u8BC1\u7801\u9519\u8BEF");
+}
+else{
+a.fn.showErr(N.errmsg||"\u7CFB\u7EDF\u7E41\u5FD9\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+}
+a("[ck='freeRegFhoneSubmit']").html("\u4E0B\u4E00\u6B65");
+}
+},error:function(M){
+a.fn.showErr("\u64CD\u4F5C\u5931\u8D25");
+a("[ck='freeFhoneRegSubmit']").html("\u4E0B\u4E00\u6B65");
+}});
+});
+if(a("#is_register_max").val()=="1")
+{
+a(".js_dlg_content").html("\u4F01\u4E1A\u5FAE\u4FE1\u7528\u6237\u5F00\u901A\u4F01\u4E1A\u90AE\u7BB1\u514D\u8D39\u7248\u6700\u591A\u53EA\u80FD\u521B\u5EFA2\u4E2A\u3002\u4F60\u5DF2\u5F00\u901A2\u4E2A\u514D\u8D39\u5E10\u53F7\uFF0C\u8FBE\u5230\u4E0A\u9650\u3002");
+a(".js_mask").show();
+var r=(document.body.clientWidth/2-200>0)?document.body.clientWidth/2-200:0;
+a(".js_dialog").css("left",r+"px");
+a(".js_dialog").show();
+}
+var f=0,e=false,p=parseInt(a("[name='valid_time']").val())/2-5,t=a("[name='scan_code']").val();
+function l()
+{
+a.ajax('/cgi-bin/bizmail_portal?action=get_qrcode_for_free_register&t=biz_rf_portal_mgr&ef=jsnew&resp_charset=UTF8&r='+Math.random(),{dataType:"json",success:function(J){
+if(J.retcode==="0")
+{
+a("#register_qr").find("img").attr("src","https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket="+J.data.ticket);
+t=J.data.code;
+p=parseInt(J.data.time_limit)/2-5;
+f=0;
+e=false;
+setTimeout(s,2000);
+}
+else if(J.retcode==="-104")
+{
+a(".js_dlg_content").html("\u4F01\u4E1A\u5FAE\u4FE1\u7528\u6237\u5F00\u901A\u4F01\u4E1A\u90AE\u7BB1\u514D\u8D39\u7248\u6700\u591A\u53EA\u80FD\u521B\u5EFA2\u4E2A\u3002\u4F60\u5DF2\u5F00\u901A2\u4E2A\u514D\u8D39\u5E10\u53F7\uFF0C\u8FBE\u5230\u4E0A\u9650\u3002");
+a(".js_mask").show();
+var K=(document.body.clientWidth/2-200>0)?document.body.clientWidth/2-200:0;
+a(".js_dialog").css("left",K+"px");
+a(".js_dialog").show();
+}
+else{
+a.fn.showErr("\u7CFB\u7EDF\u7E41\u5FD9\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+}
+},error:function(J,K){
+a.fn.showErr(K);
+}});
+}
+;if(a(".register_qrcode").length>0)
+{
+setTimeout(s,2000);
+}
+function s()
+{
+e=++f>=p?true:false;
+a.ajax("/cgi-bin/bizmail_portal?action=is_scan_qrcode&ef=jsnew&t=biz_rf_portal_mgr&scan_code="+t,{dataType:"json",success:function(J){
+if(J.retcode==="0"&&J.data.scaned=="1")
+{
+a(".register_btm").hide();
+a(".afterScanBox").show();
+var M=a("[name='regType']").val()=="free"?"bizmail_free_signup":"bizmail_trial_signup";
+var K="http://"+location.hostname;
+var L=K+"/cgi-bin/bizmail_portal?t="+M+"&tt=fillAdminInfo&code="+J.data.code+"&type=weixin&refer="+n("refer")+"&r="+Math.random()+m();
+location.href=L;
+}
+else if(e)
+{
+a(".qr_invalid").show();
+}
+else{
+if(document.getElementById("register_qr"))
+{
+setTimeout(s,2000);
+}
+}
+}});
+}
+a(document).on('click',"span[ck='freshCode']",function(J){
+if(document.getElementById("register_qr"))
+{
+l();
+a(".qr_invalid").hide();
+}
+});
+if(document.getElementById("register_qr"))
+{
+a.ajax('/cgi-bin/sellonlinestatic?type=free_register&item=free_register_by_weixin_pv&r='+Math.random(),{dataType:'json'});
+}
+a(document).on('click',"input[name=domain_option]",function(J){
+if(a("input[name='domain_option']:checked").val()=="no")
+{
+a('input[name=dnspod_domain_str]').removeAttr('disabled');
+a('input[name=domain_str]').val('').attr('disabled','disabled');
+if(!('placeholder' in document.createElement('input')))
+{
+a('input[name=domain_str]').siblings(".cus_placeholder").eq(0).show();
+}
+a('#search_domain_btn').removeAttr('disabled');
+a('#domain_ext_item_wrap').removeClass('disabled');
+}
+else{
+a('input[name=domain_str]').removeAttr('disabled');
+a('input[name=dnspod_domain_str]').val('').attr('disabled','disabled');
+if(!('placeholder' in document.createElement('input')))
+{
+a('input[name=dnspod_domain_str]').siblings(".cus_placeholder").eq(0).show();
+}
+a('#search_domain_btn').attr('disabled','disabled');
+a('#domain_ext_item_wrap').addClass('disabled');
+a('#domain_tips_succ').hide();
+a('#domain_tips_fail').hide();
+a('#form_id_name_wrap').hide();
+}
+a('.js_domain_input_tips').hide();
+});
+a('#domain_text').on('focus',function(){
+a(this).css("border-color","");
+a('#domain_tips_succ').hide();
+a('#domain_tips_fail').hide();
+});
+a('#domain_text').on('input propertychange',function(){
+a(this).removeAttr('domain');
+});
+if(document.all&&typeof FileReader==='undefined'&&window.addEventListener)
+{
+a('#domain_text').bind("keyup",function(J){
+var K=J.which;
+if(K==8||K==46)
+{
+a('#domain_text').trigger('input');
+}
+});
+a('#domain_text').bind("cut",function(J){
+a('#domain_text').trigger('input');
+});
+}
+a('#search_domain_btn').on('click',function(L){
+$this=a(this);
+if(a("input[name='domain_option']:checked").val()!="no")
+{
+return;
+}
+var J=a('#domain_text');
+var K=a('#domain_text').val();
+if(a.trim(K)==="")
+{
+J.css("border-color","red");
+return;
+}
+$this.html('\u67E5\u8BE2\u4E2D...');
+$this.attr('disabled','disabled');
+a.ajax('/cgi-bin/bizmail?sid='+a("input[name='sid1']").val()+'&action=checkDnspodDomainState&t=biz_rf_portal_mgr&ef=jsnew',{type:"GET",dataType:"json",data:{domain:a('#domain_text').val()+a('#domain_ext_value').text()},success:function(M){
+$this.html('\u67E5\u8BE2\u57DF\u540D');
+$this.removeAttr('disabled');
+if(M.retcode==='0'&&M.data.errorcode==='0')
+{
+a('#domain_tips_succ').show();
+a('#domain_tips_fail').hide();
+J.attr('domain','true');
+a('#form_id_name_wrap').show();
+}
+else{
+a('#domain_tips_succ').hide();
+a('#domain_tips_fail').show();
+J.attr('domain','false');
+}
+if(a('.js_valid_tip').html()==='\u8BF7\u5148\u67E5\u8BE2\u57DF\u540D\u662F\u5426\u53EF\u7528')
+{
+a('.js_domain_input_tips').hide();
+}
+}});
+});
+if(a('#form_domain_ext_layer').size())
+{
+a.ajax('/cgi-bin/bizmail_domain?sid='+a("input[name='sid1']").val()+'&action=get_domain_price&t=biz_rf_portal_mgr&ef=jsnew',{type:"GET",dataType:"json",success:function(L){
+if(L.retcode==='0'&&L.data.errorcode==='0')
+{
+if(L.data.sell_domain_list)
+{
+var J='';
+try{
+J=template('domain_list_tpl',L.data);
+}
+catch(K)
+{
+J='\u6570\u636E\u52A0\u8F7D\u5931\u8D25';
+}
+a('#form_domain_ext_layer ul.domain_ext_list').html(J);
+}
+}
+}});
+c(a('#domain_ext_item_wrap'),a('#form_domain_ext_layer'));
+}
+function c(J,K)
+{
+var L=function(N){
+var M=a(N.target);
+if(!a.contains(K[0],M[0])&&K[0]!=M[0]&&!a.contains(J[0],M[0])&&J[0]!=M[0])
+{
+K.removeClass('active');
+a(document).off('click',L);
+}
+};
+J.on('click',function(){
+if(J.hasClass('disabled'))
+{
+return;
+}
+K.toggleClass('active');
+if(K.hasClass('active'))
+{
+a(document).on('click',L);
+}
+else{
+a(document).off('click',L);
+}
+});
+K.on('click','li.domain_ext_item',function(N){
+var M=a(this);
+J.find('div.domain_ext_item_left').html(M.find('div.domain_ext_item_left').html());
+J.find('span.domain_ext_item_price').html(M.find('span.domain_ext_item_price').html());
+K.removeClass('active');
+});
+}
+var i,j;
+function d(O,R,Q)
+{
+var L=document.createElement("DIV");
+var K=document.createElement("IMG");
+var M=document.createTextNode("  \u52A0\u8F7D\u4E2D...");
+K.src="/zh_CN/htmledition/images/bizmail/manage/ico_loading2.gif";
+K.align="absmiddle";
+L.appendChild(K);
+L.appendChild(M);
+L.className="content";
+L.style.cssText="font-size:16px;text-align:center;margin-top:160px;_padding-bottom:155px;";
+try{
+a(".midasPayIframe").contents().find('body').html(L);
+}
+catch(N)
+{
+}
+function J()
+{
+if(a(".midasPayIframe").length==0)
+{
+try{
+clearInterval(i);
+clearInterval(j);
+}
+catch(S)
+{
+}
+return;
+}
+a.ajax('/cgi-bin/online_sell_pay_v2?action=general_get_order&t=biz_rf_portal_mgr&order_num='+O+'&sid='+Q+'&ef=jsnew&r='+Math.random(),{dataType:'json',success:function(U){
+if(U.data.order_list&&U.data.order_list.length&&U.data.order_list[0].order_state=="2")
+{
+try{
+clearInterval(i);
+clearInterval(j);
+}
+catch(T)
+{
+}
+window.location.href='/cgi-bin/online_sell_pay_v2?action=general_get_order&t=bizmail_free_signup_domain&tt=paySucc&order_num='+O+'&sid='+Q+'&alias='+a('input[name=alias]').val()+'&r='+Math.random();
+}
+}});
+}
+try{
+clearInterval(i);
+}
+catch(N)
+{
+}
+i=setInterval(J,5000);
+var P;
+a.ajax({dataType:'script',scriptCharset:'utf-8',url:"//midas.gtimg.cn/enterprise/js/enterpriseAPI_v1.0.2.js",success:function(){
+var T=TEG.Service.EnterprisePay;
+var V=TEG.Helpers.Query;
+var S=V(".midasPayIframe");
+T.Ready(function(Y){
+});
+var X=location.protocol=="https:"?"https":"http";
+if(location.hostname.search(/dev./)>=0)
+{
+var W=new T({$target:S,sessionType:TEG.Enum.SessionType.UNL,user:""+R,appId:"1450005870",protocol:"http",mId:"r",debug:true,env:"sandbox",epExt:{phone:"400-100-3366",useBizWxAppid:true},externalPending:true,style:"default",channel:"wechat",nFormat:true,protocol:X,extChannels:[]});
+}
+else{
+var W=new T({$target:S,sessionType:TEG.Enum.SessionType.UNL,user:""+R,appId:"1450005870",protocol:"http",epExt:{phone:"400-100-3366",useBizWxAppid:true},externalPending:true,style:"default",channel:"wechat",nFormat:true,protocol:X,extChannels:[]});
+}
+W.on("data",function(Y){
+if(Y.status=="1000")
+{
+a.ajax("/cgi-bin/sellonlinestatic?type=sell_on_line&item=PullUpPayWindow&r="+Math.random(),{success:function(aa){
+}});
+}
+if(Y.status=="200"&&Y.step=="success")
+{
+var Z="";
+if(Y.channel=="wechat")
+{
+Z=0;
+}
+else if(Y.channel=="bank")
+{
+Z=1;
+}
+a.ajax("/cgi-bin/sellonlinestatic?type=sell_on_line&item=PaySucc&r="+Math.random(),{success:function(aa){
+}});
+j=setInterval(J,500);
+}
+if(Y.status=="200"&&Y.step=="fail")
+{
+a.ajax("/cgi-bin/sellonlinestatic?type=sell_on_line&item=NoPay&r="+Math.random(),{success:function(aa){
+}});
+a.ajax("/cgi-bin/sell_dependent?sid="+Q+"&t=bizmail_onlinesell_order&tt=onlineFail",{success:function(aa){
+try{
+clearInterval(i);
+}
+catch(ab)
+{
+}
+a(".main_content").replaceWith(a(aa).find(".main_content"));
+}});
+}
+if(Y.status=="-400"||Y.status=="-300"||Y.status=="-200"||Y.status=="-100")
+{
+a.fn.showErr("\u64CD\u4F5C\u5931\u8D25");
+}
+});
+W.on("load",function(Y){
+});
+var U="/cgi-bin/online_sell_pay_v2?action=get_pay_url&t=biz_rf_portal_mgr&ef=jsnew&order_num="+O+"&sid="+Q;
+a.ajax(U,{type:'get',dataType:'json',error:function(Y,Z){
+a.fn.showErr(Z||"\u64CD\u4F5C\u5931\u8D25");
+},success:function(Y){
+if(Y.retcode=="0")
+{
+W.pay({token:Y.data.pay_transaction_id,tokenUrl:Y.data.pay_url_params});
+}
+else{
+a.fn.showErr("\u83B7\u53D6\u8BA2\u5355\u4FE1\u606F\u5931\u8D25");
+}
+}});
+}});
+}
+if(a('iframe.midasPayIframe').size()>0)
+{
+var q=a('input[name=order_num]').val()||n('order_num');
+d(q,x,w);
+}
+a('#buy_now_btn').on('click',function(){
+if(a("#agree_protol").prop("checked")==false)
+{
+a.fn.showErr('\u8BF7\u60A8\u9605\u8BFB\u5E76\u540C\u610F\u817E\u8BAF\u4F01\u4E1A\u90AE\u5728\u7EBF\u8D2D\u4E70\u534F\u8BAE');
+return;
+}
+var J=a(this);
+if(J.hasClass('btn_blue_disabled'))
+{
+return;
+}
+J.addClass('btn_blue_disabled');
+(new Image()).src='/cgi-bin/online_sell_pay_v2?action=general_collect_data&type=buy_dnspod&item=submit_order';
+var R=a('input[name=sid1]').val();
+var L=a('input[name=alias]').val();
+var N=a('input[name=domainType]').val(),M=a('input[name=domainName]').val(),O=a('input[name=idName]').val(),S=1;
+var Q='/cgi-bin/bizmail_domain?sid='+a('input[name=sid1]').val()+'&action=submit_order&t=bizmail_free_signup_domain&tt=paying'+'&alias='+a('input[name=alias]').val()+'&domainType='+N+'&domainName='+M+'&name='+O+'&yearAmount='+S+'&r='+Math.random();
+var P='/cgi-bin/bizmail_admin?t=bizmail_dnspod_order&action=get_order_list&sid='+R+'&alias='+L+'&r='+Math.random();
+var K='/cgi-bin/bizmail_admin?t=biz_rf_portal_mgr&action=get_order_list&sid='+R+'&alias='+L+'&ef=jsnew'+'&r='+Math.random();
+a.ajax({url:K,type:"GET",dataType:"json",success:function(U){
+if(U.retcode=='0'&&U.data.errorcode=='0'&&U.data.order_list_cnt=='0')
+{
+window.location.href=Q;
+}
+else if(+U.data.order_list_cnt>0)
+{
+var T=a('<div>').BizDialog({oContentHtml:"\u4F60\u67091\u5F20\u672A\u652F\u4ED8\u7684\u8BA2\u5355\uFF0C\u8BF7\u70B9\u51FB\u201C\u786E\u5B9A\u201D\u8FDB\u5165\u8BA2\u5355\u5217\u8868\u9009\u62E9\u7EE7\u7EED\u652F\u4ED8\u6216\u53D6\u6D88\u8BA2\u5355\u3002",nDlgType:1,bIsShowFooterCancelBtn:false,oRules:{click:{cancel:function(V,W){
+T.close();
+J.removeClass('btn_blue_disabled');
+},submit:function(V,W){
+window.location.href=P;
+T.close();
+}}}});
+}
+else{
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+J.removeClass('btn_blue_disabled');
+}
+},error:function(T){
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+J.removeClass('btn_blue_disabled');
+}});
+});
+a('a[ck=cancelDnspodOrder]').on('click',function(){
+var J=a(this);
+var L=a('input[name=order_num]').val();
+var M=a("input[name='sid1']").val();
+var K=n('alias');
+if(confirm('\u786E\u5B9A\u53D6\u6D88\u8BE5\u8BA2\u5355\uFF1F'))
+{
+J.text('\u53D6\u6D88\u4E2D..');
+a.ajax({url:'/cgi-bin/online_sell_pay_v2?sid='+M+'&action=general_del_order&t=biz_rf_portal_mgr&ef=jsnew',data:{order_num:J.attr('orderNum')},type:"GET",dataType:"json",success:function(N){
+if(N.retcode==='0'&&N.data.errorcode==='0')
+{
+a.fn.showMsg('\u53D6\u6D88\u6210\u529F');
+a('.btn_light_blue').hide();
+J.text('\u5DF2\u53D6\u6D88');
+setTimeout(function(){
+window.location.href='/cgi-bin/bizmail?t=bizmail_free_signup_domain&tt=addDomain&sid='+M+'&alias='+K+'&r='+Math.random();
+},1000);
+}
+else{
+J.text('\u53D6\u6D88\u8BA2\u5355');
+a.fn.showErr('\u53D6\u6D88\u5931\u8D25');
+}
+}});
+}
+});
+a('a[ck=goCheck]').on('click',function(){
+var M=a("input[name='sid1']").val();
+var K=a('span[data-type=order_name]').text().substr(2);
+var O="https://www.dnspod.cn/SignUp?callback_url=",J="http://exmail.qq.com/cgi-bin/bizmail?sid="+M+"t=dp_auth_result&tt=cn_auth_result&domain="+K+"&action=dp_cn_transfer",N=parseInt((new Date().getTime())/1000),L=hex_md5(J+N+"exmail"+"YI&O7Z5LpsW3vQ");
+window.open(O+encodeURIComponent(J)+"&timestamp="+N+"&default=email&from=exmail&hash="+L);
+});
+a('a[ck=paySuccGoToAdmin]').on('click',function(){
+a("#tipsTop").show();
+var K=a("input[name='sid1']").val();
+var M='/cgi-bin/bizmail?sid='+K+'&action=getDomainCount&t=biz_rf_portal_mgr&ef=jsnew';
+var J=0;
+function L()
+{
+a.ajax({url:M,dataType:"json",success:function(N){
+++J;
+if(N.retcode=='0'&&N.data.errorcode=='0')
+{
+if(N.data.domains_count=='0')
+{
+if(J<10)
+{
+setTimeout(function(){
+L();
+},1000);
+}
+else{
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+}
+}
+else{
+window.location.href="/cgi-bin/bizmail?sid="+K+"&t=biz_rf_home&init=1#domain/manage";
+}
+}
+},error:function(){
+a.fn.showErr("\u7CFB\u7EDF\u9519\u8BEF\uFF0C\u8BF7\u7A0D\u5019\u91CD\u8BD5");
+}});
+}
+L();
+});
+})();
+});
+})(jQuery);

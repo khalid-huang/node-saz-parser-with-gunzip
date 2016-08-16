@@ -1,0 +1,46 @@
+CONNECT exmail.qq.com:443 HTTP/1.1
+Host: exmail.qq.com:443
+Connection: keep-alive
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+
+A SSLv3-compatible ClientHello handshake was found. Fiddler extracted the parameters below.
+
+Version: 3.3 (TLS/1.2)
+Random: 27 29 98 FC A7 EA 4C BF C7 CA 85 8F E2 BB DF 31 6E 73 63 D3 47 3A F1 EA 50 08 7F 2E 0E 1E 1A 60
+"Time": 2104/4/17 7:07:19
+SessionID: 4B 3B 00 00 DE 89 22 2C 8E 81 61 DD 07 1B 48 CA 15 19 AA DB FD 99 F8 C0 FB C5 9A AA 6A 72 86 C8
+Extensions: 
+	renegotiation_info	00
+	server_name	exmail.qq.com
+	extended_master_secret	empty
+	SessionTicket	empty
+	signature_algs	sha512_rsa, sha512_ecdsa, sha384_rsa, sha384_ecdsa, sha256_rsa, sha256_ecdsa, sha1_rsa, sha1_ecdsa
+	status_request	OCSP - Implicit Responder
+	SignedCertTimestamp (RFC6962)	empty
+	ALPN		h2, http/1.1
+	channel_id(GoogleDraft)	empty
+	ec_point_formats	uncompressed [0x0]
+	elliptic_curves	unknown [0x1D), secp256r1 [0x17], secp384r1 [0x18]
+Ciphers: 
+	[C02B]	TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+	[C02F]	TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	[C02C]	TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+	[C030]	TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	[CCA9]	TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+	[CCA8]	TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	[CC14]	TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256
+	[CC13]	TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256
+	[C009]	TLS1_CK_ECDHE_ECDSA_WITH_AES_128_CBC_SHA
+	[C013]	TLS1_CK_ECDHE_RSA_WITH_AES_128_CBC_SHA
+	[C00A]	TLS1_CK_ECDHE_ECDSA_WITH_AES_256_CBC_SHA
+	[C014]	TLS1_CK_ECDHE_RSA_WITH_AES_256_CBC_SHA
+	[009C]	TLS_RSA_WITH_AES_128_GCM_SHA256
+	[009D]	TLS_RSA_WITH_AES_256_GCM_SHA384
+	[002F]	TLS_RSA_AES_128_SHA
+	[0035]	TLS_RSA_AES_256_SHA
+	[000A]	SSL_RSA_WITH_3DES_EDE_SHA
+
+Compression: 
+	[00]	NO_COMPRESSION
+
+

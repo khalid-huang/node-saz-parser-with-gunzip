@@ -1,0 +1,47 @@
+HTTP/1.1 200 OK
+Server: nginx/1.4.7
+Date: Thu, 11 Aug 2016 03:50:00 GMT
+Content-Type: application/x-javascript
+Content-Length: 555
+Connection: keep-alive
+Expires: Sat, 10 Sep 2016 03:50:00 GMT
+Cache-Control: max-age=2592000
+Last-Modified: Tue, 1 Mar 2016 19:37:25 GMT
+
+(function(){
+$(function(){
+$.extend($.fn,{customPlaceholder:function(f){
+var c=document,b=$(c).find('input'),h='placeholder' in c.createElement('input'),g=function(i){
+var l=i.attr('placeholder'),k=i[0].defaultValue;
+if(k=='')
+{
+}
+i.on("focus",function(){
+if(i.val()===l)
+{
+this.value='';
+}
+});
+i.on("blur",function(){
+if(i.val()==='')
+{
+}
+});
+};
+if(!h)
+{
+for(var d=0,e=b.length;d<e;d++)
+{
+var a=b.eq(d),j=a.attr('placeholder');
+if((a.attr("type")==='text')&&(a.attr("no_place_holder")!=1)&&j)
+{
+g(a);
+}
+}
+}
+else{
+$("label.c_pl").hide();
+}
+}});
+});
+})();

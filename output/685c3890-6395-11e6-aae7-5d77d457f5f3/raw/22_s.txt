@@ -1,0 +1,103 @@
+HTTP/1.1 200 OK
+Server: nginx/1.4.7
+Date: Thu, 11 Aug 2016 03:50:00 GMT
+Content-Type: application/x-javascript
+Content-Length: 1694
+Connection: keep-alive
+Expires: Sat, 10 Sep 2016 03:50:00 GMT
+Cache-Control: max-age=2592000
+Last-Modified: Thu, 28 Apr 2016 15:48:56 GMT
+
+(function(a){
+if(typeof define==='function'&&define.amd)
+{
+define(['jquery'],a);
+}
+else if(typeof module==='object'&&module.exports)
+{
+a(require('jquery'));
+}
+else{
+a(jQuery);
+}
+}(function(a){
+var d=false;
+var g=Object.prototype.toString.call(window.operamini)==='[object OperaMini]';
+var f='placeholder' in document.createElement('input')&&!g&&!d;
+var h='placeholder' in document.createElement('textarea')&&!g&&!d;
+var j;
+var e={customClass:'placeholder',forceSupport:false};
+var b=a('<span class="compatible_placeholder" style="display:none;"></span>');
+j=a.fn.placeholder=function(m){
+var n=a.extend({},e,m);
+if(f&&h&&!n.forceSupport)
+{
+return this;
+}
+return this.find(".compatible_ipt").not('.'+n.customClass).bind({'focus.placeholder':c,'blur.placeholder':l,'keydown.placeholder':i,'paste.placeholder':i}).data('placeholder-enabled',true).trigger('blur.placeholder');
+};
+j.input=f;
+j.textarea=h;
+function c(p,s)
+{
+var o=a(this);
+var r=true;
+var m=o.data("placeholder-input");
+if(!m||m.length<=0)
+{
+m=a(this);
+r=false;
+}
+var q=m[0];
+var n=m.data("placeholder-span");
+if(q.value.length>0)
+{
+n.hide();
+}
+r&&q.select();
+}
+function l(o)
+{
+var n;
+var p=this;
+var m=a(this);
+if(!m.data('placeholder-span'))
+{
+n=b.clone();
+n.text(m.attr("placeholder"));
+m.attr("placeholder","");
+n.data({'placeholder-input':m}).bind('focus.placeholder',c);
+m.data({'placeholder-span':n}).after(n);
+}
+else{
+n=m.data("placeholder-span");
+}
+if(p.value==='')
+{
+n.show();
+}
+}
+function i(m)
+{
+var n=this;
+clearTimeout(this.clearTimeoutId);
+this.clearTimeoutId=setTimeout(function(){
+if(n.value=='')
+{
+l.call(n,m);
+}
+else{
+c.call(n,m);
+}
+},25);
+}
+function k()
+{
+try{
+return document.activeElement;
+}
+catch(m)
+{
+}
+}
+}));

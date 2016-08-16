@@ -1,0 +1,30 @@
+HTTP/1.1 200 Connection established
+
+Encrypted HTTPS traffic flows through this CONNECT tunnel. HTTPS Decryption is enabled in Fiddler, so decrypted sessions running in this tunnel will be shown in the Web Sessions list.
+
+Secure Protocol: Tls
+Cipher: Aes128 128bits
+Hash Algorithm: Sha1 160bits
+Key Exchange: ECDHE_RSA (0xae06) 256bits
+
+== Server Certificate ==========
+[Subject]
+  CN=baidu.com, OU=service operation department, O="Beijing Baidu Netcom Science Technology Co., Ltd.", L=Beijing, S=Beijing, C=CN
+
+[Issuer]
+  CN=Symantec Class 3 Secure Server CA - G4, OU=Symantec Trust Network, O=Symantec Corporation, C=US
+
+[Serial Number]
+  1CCF7AFD633940916D36EDD8CCA483DC
+
+[Not Before]
+  2015/9/17 8:00:00
+
+[Not After]
+  2016/9/1 7:59:59
+
+[Thumbprint]
+  4E005CABE9ACDA17D3D16F5A0206BC0914EBE61A
+
+[SubjectAltNames]
+*.baidu.com, *.nuomi.com, *.hao123.com, *.bdstatic.com, www.baidu.com.cn, www.baidu.cn, sapi.map.baidu.com, loc.map.baidu.com, log.hm.baidu.com, baidu.com, api.map.baidu.com, console.bce.baidu.com, login.bce.baidu.com

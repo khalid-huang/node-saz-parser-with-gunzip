@@ -1,0 +1,12 @@
+GET https://exmail.qq.com/zh_CN/htmledition/js_biz/home/lib/md529191a.js HTTP/1.1
+Host: exmail.qq.com
+Connection: keep-alive
+Cache-Control: max-age=0
+User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36
+Accept: */*
+Referer: https://exmail.qq.com/
+Accept-Encoding: gzip, deflate, sdch, br
+Accept-Language: zh-CN,zh;q=0.8
+Cookie: qy_portalsid=XdcHFBhdRWEA2ue1Wv0RWqiErFm6lS2rXrN4e8UgNnTcjMwp7Ykpxsna4oVO6_grjfOOZY46rmCd7BnP8792JL1iD64laSbgmrllKOdppU_71eS7nS6Oj0EC0UV1qi_T.mjX_T_5.0T2Xr6OKh9xew; 0.7082451299242032; qm_flag=3; qqmail_alias=huangqk@mail2.sysu.edu.cn; sid=-1680700276&1c819a498f86bc22090c188e106f24e3,c8KXx_0ZLPjU.; qm_sid=1c819a498f86bc22090c188e106f24e3,c8KXx_0ZLPjU.; qm_username=2614267020; biz_username=2614267020; CCSHOW=0000; username=-1680700276&2614267020; tinfo=EXPIRED; new_mail_num=-1680700276&12; qm_sk=-1680700276&UULT3vNI; qm_ssum=-1680700276&bac44e1414aee6082921093cf9622614; pac_uid=0_57aa98f9d95fc; pgv_info=ssid=s8695233360; pgv_pvid=3714232987; dc_vplaying=0; verifysession=h01ac03b5a17d05a5a34e29896500f0b4a38b55381afba63a799e786bc831afcd5e154eb748756a86621fb9fce7a69db113; ptui_loginuin=695451849@qq.com; ptcz=3c094b06cde0279eb4dd0d8b3a6af5a854dc53d34d14f76f98bd17d50b06e31c; pt2gguin=o0695451849; uin=o0695451849; skey=@K4l1ctgOI; ptisp=ctc; ssl_edition=mail.qq.com; _gat=1; _ga=GA1.3.2124876561.1469000474; Hm_lvt_bdfb0d7298c0c5a5a2475c291ac7aca2=1469020421; Hm_lpvt_bdfb0d7298c0c5a5a2475c291ac7aca2=1470887389
+If-Modified-Since: Thu, 15 Oct 2015 18:02:18 GMT
+

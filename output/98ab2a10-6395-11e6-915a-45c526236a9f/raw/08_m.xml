@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Session SID="8" BitFlags="2800">
+  <SessionTimers ClientConnected="2016-08-11T11:49:59.4377892+08:00" ClientBeginRequest="2016-08-11T11:49:59.4417896+08:00" GotRequestHeaders="2016-08-11T11:49:59.4417896+08:00" ClientDoneRequest="2016-08-11T11:49:59.4427897+08:00" GatewayTime="31" DNSTime="0" TCPConnectTime="5" HTTPSHandshakeTime="49" ServerConnected="2016-08-11T11:49:59.4877942+08:00" FiddlerBeginRequest="2016-08-11T11:49:59.4877942+08:00" ServerGotRequest="2016-08-11T11:49:59.4877942+08:00" ServerBeginResponse="2016-08-11T11:49:59.5287983+08:00" GotResponseHeaders="2016-08-11T11:49:59.5287983+08:00" ServerDoneResponse="2016-08-11T11:49:59.5287983+08:00" ClientBeginResponse="2016-08-11T11:49:59.5287983+08:00" ClientDoneResponse="2016-08-11T11:49:59.5287983+08:00" />
+  <PipeInfo Forwarded="true" />
+  <TunnelInfo BytesEgress="0" BytesIngress="0" />
+  <SessionFlags>
+    <SessionFlag N="https-server-cipher" V="Aes128 128bits" />
+    <SessionFlag N="x-responsebodytransferlength" V="0" />
+    <SessionFlag N="https-server-version" V="Tls" />
+    <SessionFlag N="https-client-snihostname" V="hm.baidu.com" />
+    <SessionFlag N="x-clientip" V="127.0.0.1" />
+    <SessionFlag N="x-clientport" V="52301" />
+    <SessionFlag N="https-client-sessionid" V="0A 0A 00 00 07 BE 99 21 13 2E 07 7E 12 D7 91 6C 36 11 F9 9B B3 5B B9 05 B9 E1 EA 03 62 8D 3A AF" />
+    <SessionFlag N="x-processinfo" V="chrome:964" />
+    <SessionFlag N="https-client-version" V="Tls" />
+    <SessionFlag N="x-egressport" V="52308" />
+    <SessionFlag N="x-hostip" V="10.14.87.100" />
+  </SessionFlags>
+</Session>
