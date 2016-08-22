@@ -1,10 +1,1 @@
-Encrypted HTTPS traffic flows through this CONNECT tunnel. HTTPS Decryption is enabled in Fiddler, so decrypted sessions running in this tunnel will be shown in the Web Sessions list.
-
-Secure Protocol: Tls
-Cipher: Aes128 128bits
-Hash Algorithm: Sha1 160bits
-Key Exchange: ECDHE_RSA (0xae06) 256bits
-
-== Server Certificate ==========
-[Subject]
-  CN=exmail.qq.com, OU=R&D, O=Shenzhen Tencent Computer Systems Company Limited, L=Shenzhen, S=Guangdong, C=CN
+[object Object]
